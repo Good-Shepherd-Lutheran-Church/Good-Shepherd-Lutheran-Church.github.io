@@ -1,0 +1,50 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "./persons.schema.json",
+	"title": "Data for the church and school staff",
+	"description": "An array of objects that contain information about teachers, school administrators, and church staff.",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string"
+			},
+			"bio": {
+				"type": "string"
+			},
+			"role": {
+				"description": "Departments",
+				"type": "array",
+				"items": {
+					"type": "string",
+					"enum": ["churchOffice", "pastor", "teacher", "administrator"]
+				},
+				"minItems": 1,
+				"uniqueItems": true
+			},
+			"program": {
+				"description": "If teacher, what grade do they teach?",
+				"type": "array",
+				"items": {
+					"type": "string",
+					"enum": [
+						"VPK",
+						"Pre-K",
+						"Kindergarten",
+						"First",
+						"Second",
+						"Third",
+						"Fourth",
+						"Fifth",
+						"Aftercare",
+						"STEM",
+						"PE"
+					]
+				}
+			},
+			"imageTerm": ["string"]
+		},
+		"required": ["name", "role"]
+	}
+}

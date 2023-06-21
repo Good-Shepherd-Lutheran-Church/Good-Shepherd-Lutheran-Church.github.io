@@ -8,7 +8,18 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
-		"strict": true
+		"strict": true,
+    "lib":["DOM", "DOM.Iterable"],
+    "paths": {
+      "$components": ["./src/lib/components"],
+      "$components/*": ["./src/lib/components/*"],
+      "$images": ["./src/lib/assets/images"],
+      "$images/*": ["./src/lib/assets/images/*"],
+      "$lib":["./src/lib"],
+      "$lib/*":["./src/lib/*"],
+      "$utils":["./src/lib/utils"],
+      "$utils/*":["./src/lib/utils/*"]
+    }
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//

@@ -1,0 +1,36 @@
+[
+	{
+		"name": "Pre-K",
+		"description": "Pre-K education refers to early childhood education programs designed for children between the ages of three and five years old. These programs are often provided by public and private schools, community centers, and childcare facilities. The goal of pre-K education is to promote cognitive, social, emotional, and physical development in young children by providing a structured and stimulating learning environment. Pre-K curriculum typically includes activities that encourage language development, problem-solving skills, creativity, and social interaction. Teachers may use play-based learning techniques to help children explore and learn about the world around them. Pre-K education plays a vital role in preparing children for success in their later academic and personal lives.",
+		"maxAge": 3,
+		"hours": "8:00am - 2:00pm",
+		"days": "Monday - Friday",
+		"imageTerm": "pre-k"
+	},
+	{
+		"name": "VPK",
+		"description": "VPK, or Voluntary Pre-Kindergarten, is a free program offered by the state of Florida for children who turn four years old by September 1st of the academic year. This program aims to prepare children for success in kindergarten by providing a high-quality early learning experience. VPK is available to all eligible children, regardless of family income or background, and can be provided by public schools, private schools, and childcare centers. The program focuses on building children's cognitive, social, emotional, and physical skills through a play-based curriculum that includes activities such as storytelling, music, art, and outdoor play. VPK teachers are required to have a degree in early childhood education or a related field, and the program is held to high standards of quality and accountability. Overall, VPK provides a valuable opportunity for children in Florida to start their educational journey on the right foot.",
+		"maxAge": 4,
+		"hours": "8:00am - 12:00pm",
+		"days": "Monday - Thursday",
+		"imageTerm": "vpk"
+	},
+	{
+		"name": "K-5",
+		"description": "Elementary education is a crucial phase in a child's academic journey that spans from kindergarten to fifth or sixth grade, depending on the country or state. This stage of education focuses on imparting fundamental skills and knowledge in core subjects, including language arts, mathematics, science, social studies, and physical education. Elementary schools are designed to provide a safe and supportive learning environment where children can develop academic, social, emotional, and physical skills through a diverse range of learning experiences. Teachers use various instructional methods, including lectures, group activities, and individualized learning, to cater to the diverse learning styles and needs of their students. Elementary education plays a significant role in shaping a child's future academic success, fostering a love of learning, and developing critical thinking and problem-solving skills. Overall, elementary education is essential for laying a strong foundation for lifelong learning and personal growth.",
+		"minAge": 5,
+		"maxAge": 11,
+		"hours": "8:00am - 2:00pm",
+		"days": "Monday - Friday",
+		"imageTerm": "sfr"
+	},
+	{
+		"name": "Aftercare",
+		"description": "Child aftercare is a program that provides care and supervision for children after regular school hours, usually from the end of the school day until early evening. This service is particularly helpful for working parents who are unable to pick up their children immediately after school. Child aftercare programs may be offered by schools, community centers, or private organizations, and may include a range of activities such as homework help, recreational activities, and snacks. Child aftercare programs offer a safe and structured environment for children to spend time after school, where they can socialize with their peers and engage in age-appropriate activities under the supervision of trained staff. These programs also provide a sense of security for parents, knowing that their children are in a safe and nurturing environment while they are at work. Overall, child aftercare is a valuable resource for families, providing a convenient and supportive service that benefits both children and parents alike.",
+		"minAge": 3,
+		"maxAge": 7,
+		"days": "Monday - Friday",
+		"hours": "12:00pm - 5:30pm",
+		"imageTerm": "aftercare"
+	}
+]
