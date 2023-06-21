@@ -11,7 +11,7 @@
 		"test:unit": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"deploy": "touch build/.nojekyll && gh-pages -d build -t true"
+		"deploy": "touch build/.nojekyll && echo www.goodshepherdgb.com > build/CNAME && gh-pages -d build -t true"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",

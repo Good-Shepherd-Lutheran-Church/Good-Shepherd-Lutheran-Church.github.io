@@ -29,7 +29,7 @@
 	<Gallery autoplayDelayMs={3500} imageDirectory={lifeTogether} />
 </MainBlock>
 
-<MainBlock>
+<MainBlock maxWidth="90ex">
 	<Title title="What We Believe" />
 	<Article
 		text={[
@@ -60,7 +60,7 @@
 	/>
 </MainBlock>
 
-<MainBlock>
+<MainBlock maxWidth="90ex">
 	<Title title={`"What About?" Series`} />
 	<Article
 		text={`“What About?” is a series of pamphlets that addresses doctrinal topics, moral issues, and concerns in the church to help Christians grow in their understanding of these important questions.`}
@@ -76,7 +76,7 @@
 	>
 </MainBlock>
 
-<MainBlock>
+<MainBlock maxWidth="90ex">
 	<Title title="History of Good Shepherd" tocTitle="History" />
 	<Accordion>
 		<AccordionItem label="Founding">
@@ -128,7 +128,7 @@
 	</Accordion>
 </MainBlock>
 
-<MainBlock>
+<MainBlock maxWidth="90ex">
 	<Title title="National Church" />
 	<Article
 		imageEntry={churchAbout.fuzz('LCMS')}

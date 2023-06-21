@@ -28,6 +28,3 @@
 		<Button text="Enrollment for '23-24 School Year" href="/school/programs" />
 	</AutoGrid>
 </MainBlock>
-
-<style lang="scss">
-</style>

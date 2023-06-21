@@ -1,10 +1,7 @@
 <script lang="ts">
 	import MainBlock from '$components/MainBlock.svelte';
-	import Title from '$components/Title.svelte';
-	import Gallery from '$components/Gallery.svelte';
 	import Article from '$components/Article.svelte';
-	import { lifeTogether, churchLanding } from '$utils/ImageImports/ImageImports';
-	import SubHeading from '$components/SubHeading.svelte';
+	import { churchLanding } from '$utils/ImageImports/ImageImports';
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Button from '$components/Button.svelte';
 	import Hero from '$components/Hero.svelte';

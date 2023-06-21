@@ -16,7 +16,7 @@
 	<title>Ministries</title>
 </svelte:head>
 
-<MainBlock>
+<MainBlock maxWidth="90ex">
 	<Title title="Good Shepherd Lutheran School" tocTitle="School" />
 	<Article
 		imageEntry={churchMinistries.fuzz('riding')}
@@ -40,7 +40,7 @@
 	</AutoGrid>
 </MainBlock>
 
-<MainBlock>
+<MainBlock maxWidth="90ex">
 	<TocTarget title="LWML" />
 	<SubHeading imageEntry={churchMinistries.fuzz('lwml')} />
 	<SubHeading hrule={true} />
@@ -55,7 +55,7 @@
 	</AutoGrid>
 </MainBlock>
 
-<MainBlock>
+<MainBlock maxWidth="90ex">
 	<Title title="Teaching Ministries" tocTitle="Teaching" />
 	<Accordion>
 		<AccordionItem label="Sunday School">
@@ -97,7 +97,7 @@
 	</Accordion>
 </MainBlock>
 
-<MainBlock>
+<MainBlock maxWidth="90ex">
 	<Title title="AA" />
 	<SubHeading label="Tiger Point Hope" labelBox={true} justifyLabel="start" />
 	<p>Mon, Thursday, Friday @ 6PM in the Fellowship Hall. Please enter via South doors.</p>

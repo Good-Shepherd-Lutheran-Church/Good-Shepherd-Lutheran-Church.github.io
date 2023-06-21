@@ -6,3 +6,5 @@ Youtube and FaceBook video pages
 Contact
 Map
 Calendar
+More pictures everywhere, but specifically on enrollment, church landing, school landing, and ministries
+Social media

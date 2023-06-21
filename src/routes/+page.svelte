@@ -46,6 +46,3 @@
 		/>
 	</AutoGrid>
 </MainBlock>
-
-<style lang="scss">
-</style>
