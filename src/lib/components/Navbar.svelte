@@ -191,6 +191,7 @@
 			grid-area: expanded;
 			display: flex;
 			column-gap: 1rem;
+			justify-items: center;
 			align-items: center;
 
 			.dropdown {
@@ -199,6 +200,7 @@
 				position: relative;
 
 				.dropdown-indicator {
+					font-size: 120%;
 					margin-inline-end: -4px;
 					cursor: pointer;
 				}

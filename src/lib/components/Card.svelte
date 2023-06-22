@@ -8,6 +8,7 @@
 	export let src: string | null = null;
 	export let srcset: string | null = null;
 	export let imageEntry: ImageEntry | null = null;
+	export let objectFit: 'contain' | 'cover' | 'scale-down' = 'contain';
 	export let defaultHref: string | null = null;
 	export let text: string | null = null;
 	export let links: LinkEntry[] | null = null;
@@ -31,7 +32,7 @@
 
 	{#if imageEntry || src}
 		<svelte:element this={defaultHref ? 'a' : 'div'} class="image" href={defaultHref}
-			><Image {src} {srcset} {imageEntry} objectFit="scale-down" /></svelte:element
+			><Image {src} {srcset} {imageEntry} {objectFit} /></svelte:element
 		>
 	{/if}
 
@@ -88,7 +89,7 @@
 
 		.image {
 			display: flex;
-			max-height: 40vh;
+			max-height: 45vh;
 		}
 
 		p.text {

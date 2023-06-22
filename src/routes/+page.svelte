@@ -37,7 +37,7 @@
 		<Card
 			defaultHref="/school"
 			title="To School"
-			imageEntry={mainLanding.fuzz('flag')}
+			imageEntry={mainLanding.fuzz('main_landing_school')}
 			links={[
 				{ href: '/school/enroll', text: 'Now Enrolling!' },
 				{ href: '/school/programs', text: 'Programs' },

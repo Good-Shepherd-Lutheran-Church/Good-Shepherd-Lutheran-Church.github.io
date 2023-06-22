@@ -1,7 +1,7 @@
 [
 	{
 		"name": "Pre-K",
-		"description": "Pre-K education refers to early childhood education programs designed for children between the ages of three and five years old. These programs are often provided by public and private schools, community centers, and childcare facilities. The goal of pre-K education is to promote cognitive, social, emotional, and physical development in young children by providing a structured and stimulating learning environment. Pre-K curriculum typically includes activities that encourage language development, problem-solving skills, creativity, and social interaction. Teachers may use play-based learning techniques to help children explore and learn about the world around them. Pre-K education plays a vital role in preparing children for success in their later academic and personal lives.",
+		"description": "Pre-K education refers to early childhood education programs designed for children three years old by September 1. Children must be potty trained before school starts. These programs are often provided by public and private schools, community centers, and childcare facilities. The goal of pre-K education is to promote cognitive, social, emotional, and physical development in young children by providing a structured and stimulating learning environment. Pre-K curriculum typically includes activities that encourage language development, problem-solving skills, creativity, and social interaction. Teachers may use play-based learning techniques to help children explore and learn about the world around them. Pre-K education plays a vital role in preparing children for success in their later academic and personal lives.",
 		"maxAge": 3,
 		"hours": "8:00am - 2:00pm",
 		"days": "Monday - Friday",
@@ -10,7 +10,8 @@
 	{
 		"name": "VPK",
 		"description": "VPK, or Voluntary Pre-Kindergarten, is a free program offered by the state of Florida for children who turn four years old by September 1st of the academic year. This program aims to prepare children for success in kindergarten by providing a high-quality early learning experience. VPK is available to all eligible children, regardless of family income or background, and can be provided by public schools, private schools, and childcare centers. The program focuses on building children's cognitive, social, emotional, and physical skills through a play-based curriculum that includes activities such as storytelling, music, art, and outdoor play. VPK teachers are required to have a degree in early childhood education or a related field, and the program is held to high standards of quality and accountability. Overall, VPK provides a valuable opportunity for children in Florida to start their educational journey on the right foot.",
-		"maxAge": 4,
+		"minAge": 4,
+		"maxAge": 5,
 		"hours": "8:00am - 12:00pm",
 		"days": "Monday - Thursday",
 		"imageTerm": "vpk"
