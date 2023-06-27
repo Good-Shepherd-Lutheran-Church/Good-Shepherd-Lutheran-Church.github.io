@@ -1,8 +1,6 @@
 <script lang="ts">
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Button from '$components/Button.svelte';
-	import EmailForm from '$components/EmailForm.svelte';
-	import TextBase from '$components/Forms/TextBase.svelte';
 	import MainBlock from '$components/MainBlock.svelte';
 	import Title from '$components/Title.svelte';
 	import { setContext } from 'svelte';
@@ -39,15 +37,6 @@
 
 <MainBlock maxWidth="90ex">
 	<Title title="Email Us" />
-	<EmailForm
-		defaultAction={doAlert}
-		formId="email-form"
-		toOptions={[
-			{ text: 'Church', value: 'church' },
-			{ text: 'School', value: 'school' }
-		]}
-	/>
-	<TextBase name="hello" type="text" label="Hello" id="hello" />
 </MainBlock>
 
 <style lang="scss">
