@@ -1,31 +1,30 @@
 <script context="module" lang="ts">
-	import { writable } from 'svelte/store';
-	export const belowXl = writable();
-	export const belowLg = writable();
-	export const belowMd = writable();
-	export const belowSm = writable();
+	import { writable, type Writable } from 'svelte/store';
+	export let below: Writable<Record<BPNames, boolean | undefined>> = writable({
+		xs: false,
+		sm: undefined,
+		md: undefined,
+		lg: undefined,
+		xl: undefined
+	});
 </script>
 
 <script lang="ts">
-	export let breakpoints: { xl: number; lg: number; md: number; sm: number } = {
+	export let breakpoints: Record<BPNames, number> = {
 		xl: 1200,
 		lg: 992,
 		md: 768,
-		sm: 576
+		sm: 576,
+		xs: 0
 	};
 	let windowOuterWidth: number;
 
 	$: {
 		if (windowOuterWidth !== undefined) {
-			$belowSm = windowOuterWidth < breakpoints.sm ? true : false;
-			$belowMd = windowOuterWidth < breakpoints.md ? true : false;
-			$belowLg = windowOuterWidth < breakpoints.lg ? true : false;
-			$belowXl = windowOuterWidth < breakpoints.xl ? true : false;
-		} else {
-			$belowSm = undefined;
-			$belowMd = undefined;
-			$belowLg = undefined;
-			$belowXl = undefined;
+			$below.sm = windowOuterWidth < breakpoints.sm ? true : false;
+			$below.md = windowOuterWidth < breakpoints.md ? true : false;
+			$below.lg = windowOuterWidth < breakpoints.lg ? true : false;
+			$below.xl = windowOuterWidth < breakpoints.xl ? true : false;
 		}
 	}
 </script>

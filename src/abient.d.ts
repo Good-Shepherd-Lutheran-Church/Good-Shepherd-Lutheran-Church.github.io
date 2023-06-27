@@ -23,3 +23,12 @@ interface FontIcon {
 	class: string;
 	text: string;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+enum BPNames {
+	xs = 'xs',
+	sm = 'sm',
+	md = 'md',
+	lg = 'lg',
+	xl = 'xl'
+}

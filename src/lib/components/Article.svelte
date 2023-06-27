@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { belowMd } from '$components/WindowWatcher.svelte';
+	import { below } from '$components/WindowWatcher.svelte';
 	import Image from '$components/Image.svelte';
 
 	export let text: string | string[] | null = null;
@@ -19,11 +19,11 @@
 	let heightValue: string;
 	$: {
 		if (ar >= 1) {
-			widthValue = $belowMd ? imageMaxWidth.below : imageMaxWidth.above;
+			widthValue = $below.md ? imageMaxWidth.below : imageMaxWidth.above;
 			heightValue = 'revert';
 		} else {
 			widthValue = 'revert';
-			heightValue = $belowMd ? imageMaxHeight.below : imageMaxHeight.above;
+			heightValue = $below.md ? imageMaxHeight.below : imageMaxHeight.above;
 		}
 	}
 
@@ -32,15 +32,15 @@
 	}
 </script>
 
-<article class="Article-outer" style:display={$belowMd ? 'flex' : 'block'}>
+<article class="Article-outer" style:display={$below.md ? 'flex' : 'block'}>
 	<div
 		class="image-wrapper"
-		style:float={$belowMd ? 'none' : float}
+		style:float={$below.md ? 'none' : float}
 		style:width={widthValue}
 		style:height={heightValue}
-		style:padding-inline-start={!$belowMd && float === 'right' ? floatPadding : '0px'}
-		style:padding-inline-end={!$belowMd && float === 'left' ? floatPadding : '0px'}
-		style:margin-inline={$belowMd ? 'auto' : null}
+		style:padding-inline-start={!$below.md && float === 'right' ? floatPadding : '0px'}
+		style:padding-inline-end={!$below.md && float === 'left' ? floatPadding : '0px'}
+		style:margin-inline={$below.md ? 'auto' : null}
 	>
 		<Image {src} {srcset} {alt} {imageEntry} objectFit="scale-down" />
 	</div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import LinksFromPaths from '$utils/LinksFromPaths/LinksFromPaths';
 	import HoverBold from '$components/HoverBold.svelte';
-	import { belowSm } from '$components/WindowWatcher.svelte';
+	import { below } from '$components/WindowWatcher.svelte';
 	import { onMount } from 'svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { slide } from 'svelte/transition';
@@ -39,7 +39,7 @@
 		currentDropdown = null;
 		drawerOpen = false;
 	});
-	$: if ($belowSm) {
+	$: if ($below.sm) {
 		currentDropdown = null;
 	} else {
 		drawerOpen = false;
@@ -68,7 +68,7 @@
 	{/if}
 
 	<div class="navbar-links-expanded">
-		{#if !$belowSm}
+		{#if !$below.sm}
 			{#each rootDirectories as topDirectory, i}
 				{#if topDirectory.subdirectories.length}
 					<div class="dropdown">
@@ -106,7 +106,7 @@
 		{/if}
 	</div>
 
-	{#if $belowSm}
+	{#if $below.sm}
 		<div
 			class="navbar-toggle"
 			on:click|stopPropagation={() => {
@@ -122,7 +122,7 @@
 		</div>
 	{/if}
 
-	{#if $belowSm && drawerOpen}
+	{#if $below.sm && drawerOpen}
 		<div class="navbar-links-collapsed" transition:slide>
 			{#each rootDirectories as topDirectory}
 				<a href={topDirectory.currentPath} class="navbar-collapsed-item"

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Navbar from '$components/Navbar.svelte';
 	import Toc, { tocList } from '$components/Toc.svelte';
-	import WindowWatcher, { belowMd } from '$components/WindowWatcher.svelte';
+	import WindowWatcher, { below } from '$components/WindowWatcher.svelte';
 	import { colors } from '$lib/colors';
 	import { onMount } from 'svelte';
 	import { forceSidebar } from '$lib/stores';
@@ -15,7 +15,10 @@
 </script>
 
 <WindowWatcher />
-<div class="main-content-grid" class:no-sidebar={!$forceSidebar && ($tocList.size < 3 || $belowMd)}>
+<div
+	class="main-content-grid"
+	class:no-sidebar={!$forceSidebar && ($tocList.size < 3 || $below.md)}
+>
 	<Navbar title="Good Shepherd" />
 	<div class="toc-wrapper">
 		<Toc />

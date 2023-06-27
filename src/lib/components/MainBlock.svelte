@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Title from './Title.svelte';
-	import { belowMd } from './WindowWatcher.svelte';
+	import { below } from './WindowWatcher.svelte';
 
 	export let title: string | null = null;
 	export let tocTitle: string | null = null;
@@ -12,10 +12,10 @@
 <div
 	class="MainBlock-outer"
 	style:grid-column={cols}
-	style:padding-inline={$belowMd
+	style:padding-inline={$below.md
 		? 'var(--mainPaddingInlineSm, 1rem)'
 		: 'var(--mainPaddingInlineLg, 2rem)'}
-	style:padding-block={$belowMd
+	style:padding-block={$below.md
 		? 'var(--mainPaddingBlockSm, 0.5rem)'
 		: 'var(--mainPaddingBlockLg, 2rem)'}
 	style:max-width={maxWidth}

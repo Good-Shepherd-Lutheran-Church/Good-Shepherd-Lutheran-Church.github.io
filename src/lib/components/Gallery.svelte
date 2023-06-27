@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ImageDirectory } from '$lib/utils/ImageImports/ImageImports';
 	import Image from '$components/Image.svelte';
-	import { belowSm } from '$components/WindowWatcher.svelte';
+	import { below } from '$components/WindowWatcher.svelte';
 	import HoverBold from './HoverBold.svelte';
 	import Toggle from './Toggle.svelte';
 	import isVis from '$utils/IsVis/IsVis';
@@ -81,8 +81,8 @@
 		<div
 			class="viewport"
 			style:aspect-ratio={imageDirectory.averageAr}
-			style:max-width={$belowSm ? maxWidths.below : maxWidths.above}
-			style:max-height={$belowSm ? maxHeights.below : maxHeights.above}
+			style:max-width={$below.sm ? maxWidths.below : maxWidths.above}
+			style:max-height={$below.sm ? maxHeights.below : maxHeights.above}
 		>
 			{#each imageDirectory.data as slideEntry, i}
 				{#if i === currentIndex}
