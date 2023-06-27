@@ -1,4 +1,4 @@
-import{S as M,i as P,s as S,y as f,a as h,z as m,c as w,A as i,b as x,g as l,d as p,B as u,h as b,M as y}from"../chunks/index.f9dde1de.js";import{A as v}from"../chunks/Article.01251dd6.js";import{A,B as d}from"../chunks/Button.649f5ddf.js";import{M as k,T as C}from"../chunks/MainBlock.486a8a38.js";import{s as B}from"../chunks/ImageImports.d1a2caae.js";function L(c){let r,o;return r=new v({props:{text:`Good Shepherd Lutheran School presently
+import{S as M,i as P,s as S,y as f,a as h,z as m,c as w,A as i,b as x,g as l,d as p,B as u,h as b,M as y}from"../chunks/index.58c5e00c.js";import{A as v}from"../chunks/Article.1897e6ed.js";import{A,B as d}from"../chunks/Button.70f273d6.js";import{M as k,T as C}from"../chunks/MainBlock.37095087.js";import{s as B}from"../chunks/ImageImports.d1a2caae.js";function L(c){let r,o;return r=new v({props:{text:`Good Shepherd Lutheran School presently
     offers a Christ-centered education to students in grades PK3yo, VPK, and into early elementary
     school. With weekly Chapel, as well as religion classes and weekly visits from Pastor Jim,
     Christ permeates the core of our school and is Good Shepherd Lutheran Church’s largest
