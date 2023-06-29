@@ -73,5 +73,12 @@
 		"program": ["STEM", "PE"],
 		"bio": "My name is Jessica Stephens aka Mrs. Jessi. My husband's name is Jon and he is currently serving in the USAF. I have two kiddos whom I love! My son Kyle is 8 and my daughter Kallie is 6. The majority of my career has been in the medical field, however, recently I have had a calling to work and serve with children. In my downtime I love to travel and I love trying new and local cuisine. I am such a FOODIE! I love to laugh and you will not catch me without my coffee! I am so excited to share this upcoming school year with each and every one of your children.",
 		"imageTerm": "jessica-stephens"
+	},
+	{
+		"name": "Coach Lizz",
+		"role": ["teacher"],
+		"program": ["PE"],
+		"bio": "Hi! I'm Coach Lizz and I'll be one of your P.E. teachers this year! I'm married to my sweetheart Carl, and we have two fun daughters, Savanna & Lily. My hobbies include disc golf, making new friends, and I try to go to Disney World as often as possible! I'm so excited to be your PE Coach and I look forward to having a great time with you this school year!",
+		"imageTerm": "coach_lizz"
 	}
 ]
