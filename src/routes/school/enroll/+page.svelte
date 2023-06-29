@@ -14,10 +14,7 @@
 	<Article
 		imageEntry={schoolLanding.fuzz('logo')}
 		imageMaxWidth={{ below: '100%', above: '20%' }}
-		text="Tuition is payable in 9 installments, and payments are due 10 days after billing date every month beginning
-  August and ending April. A late fee of $25.00 will be added if not paid on time. A fee of $25.00 will be added for
-  all returned checks. If tuition is not paid within 5 days after the late fee is assessed, the child may be withheld
-  from class until the bill is paid in full."
+		text="Tuition is payable in 9 installments, and <strong>payments are due 10 days after billing date every month</strong> beginning August and ending April. A late fee of $25.00 will be added if not paid on time. A fee of $25.00 will be added for all returned checks. If tuition is not paid within 5 days after the late fee is assessed, the child may be withheld from class until the bill is paid in full."
 	/>
 	<AutoGrid />
 	<SubHeading hrule={true} label="Tuition Rates" />
@@ -25,9 +22,9 @@
 		columnCount={2}
 		data={[
 			'Administration Fee',
-			'$300 (nonrefundable) due upon registration.',
+			'$200 (nonrefundable) due upon registration.',
 			'Captial Improvement Fee',
-			'$200 (nonrefundable) due upon registration.'
+			'$100 (nonrefundable) due upon registration.'
 		]}
 	/>
 	<SubHeading hrule={true} label="Preschool" />
@@ -50,15 +47,17 @@
 		columnCount={2}
 		data={[
 			'Tuition',
-			'$6376.00',
+			'$6300.00',
 			'Curriculum Free',
 			'$325.00',
 			'Testing Fee',
 			'$50.00',
+			'Uniforms',
+			'$125.00',
 			'Tutoring (Reading & Math)',
 			'$300.00',
 			'Instructional/Digital Service Fee',
-			'$350.00'
+			'$300.00'
 		]}
 	/>
 	<SubHeading hrule={true} label="4th — 5th Grade (5 days a week)" />
@@ -66,15 +65,17 @@
 		columnCount={2}
 		data={[
 			'Tuition',
-			'$5800.00',
+			'$5725.00',
 			'Curriculum Fee',
 			'$325.00',
 			'Testing Fee',
 			'$50.00',
+			'Uniforms',
+			'$125.00',
 			'Tutoring (Reading & Math)',
 			'$300.00',
 			'Instructional/Digital Service Fee',
-			'$350.00'
+			'$300.00'
 		]}
 	/>
 	<SubHeading hrule={true} label="Scholarship Programs" />
