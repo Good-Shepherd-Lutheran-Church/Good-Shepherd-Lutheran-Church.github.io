@@ -25,10 +25,4 @@ interface FontIcon {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-enum BPNames {
-	xs = 'xs',
-	sm = 'sm',
-	md = 'md',
-	lg = 'lg',
-	xl = 'xl'
-}
+type BPNames = 'xs' | 'sm' | 'md' | 'lg' | 'xl';

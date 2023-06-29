@@ -1,6 +1,13 @@
 <script lang="ts">
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Button from '$components/Button.svelte';
+	import Form from '$components/Forms/Form.svelte';
+	import Select from '$components/Forms/Select.svelte';
+	import Subject from '$components/Forms/Subject.svelte';
+	import TextArea from '$components/Forms/TextArea.svelte';
+	import UserEmail from '$components/Forms/UserEmail.svelte';
+	import UserName from '$components/Forms/UserName.svelte';
+	import W3Forms from '$components/Forms/W3Forms.svelte';
 	import MainBlock from '$components/MainBlock.svelte';
 	import Title from '$components/Title.svelte';
 	import { setContext } from 'svelte';
@@ -37,6 +44,17 @@
 
 <MainBlock maxWidth="90ex">
 	<Title title="Email Us" />
+	<Form formId="contact-page-email">
+		<UserName />
+		<UserEmail />
+		<Select name="recipient" label="To">
+			<option value="church">church</option>
+			<option value="school">school</option>
+		</Select>
+		<Subject />
+		<TextArea name="body" />
+		<W3Forms />
+	</Form>
 </MainBlock>
 
 <style lang="scss">
