@@ -11,6 +11,7 @@
 	export let imageMaxWidth: { below: string; above: string } = { below: '80%', above: '50%' };
 	export let imageMaxHeight: { below: string; above: string } = { below: '70vh', above: '60vh' };
 	export let floatPadding: string = '1rem';
+	export let centerText: boolean = false;
 	let ar: number = 1;
 	if (imageEntry) {
 		ar = imageEntry.ar;
@@ -47,7 +48,7 @@
 
 	{#if text}
 		{#each text as paragraph, i}
-			<p class:first-paragraph={i === 1}>
+			<p style:text-align={centerText ? 'center' : null} class:first-paragraph={i === 1}>
 				{@html paragraph}
 			</p>
 		{/each}
