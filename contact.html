@@ -12,19 +12,21 @@
 		<link href="./_app/immutable/assets/0.ad01113e.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/Toc.d90a4167.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/Rotate.7cd42a2d.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/8.6a916e30.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/Button.f0cb22c8.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/MainBlock.a0b010a6.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.995db51d.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.58c5e00c.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.3535cddf.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.f1a41166.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.07bd66c6.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.747da526.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Toc.3dce4ad8.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Rotate.2df3464c.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/8.a3220b3f.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Button.70f273d6.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/MainBlock.37095087.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.95e75715.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.66f7ba00.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.21cb4382.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.10e879da.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.2881c13f.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.62f1fd9b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Toc.11bb5723.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.eaa444e6.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Rotate.006e32ef.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/8.9af39ab3.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Button.b444a57e.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/MainBlock.be6c1516.js">
 </head>
 
 <body data-sveltekit-preload-data="hover">
@@ -82,7 +84,7 @@
 	<div class="Title-outer svelte-1bic6sc"><div class="toc-target svelte-qehsp8" id="Location"></div>
 	<h2 class="title-heading">Location</h2>
 </div>
-	<div class="map-container"></div>
+	<div class="map-container"><iframe title="Embedded Google map for the church and school." src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13766.1874799546!2d-87.0455735!3d30.3922225!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890db5cd86af007%3A0x81daadf374b2d0a1!2sGood%20Shepherd%20Lutheran%20Church%20and%20School!5e0!3m2!1sen!2sus!4v1687336466237!5m2!1sen!2sus" width="600" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 </div>
 
 <div class="MainBlock-outer svelte-1jtljk" style="grid-column: 2 / 3; padding-inline: var(--mainPaddingInlineLg, 2rem); padding-block: var(--mainPaddingBlockLg, 2rem); max-width: 90ex;">
@@ -90,6 +92,46 @@
 	<div class="Title-outer svelte-1bic6sc"><div class="toc-target svelte-qehsp8" id="EmailUs"></div>
 	<h2 class="title-heading">Email Us</h2>
 </div>
+	<form id="contact-page-email" class="Form-outer svelte-1bjq3d0" style="grid-template-columns: repeat(12, 1fr); font-size: 1.1rem;"><label for="user-name" form="contact-page-email" class="TextBase-outer svelte-owdzp8" style="grid-column-end: span 6;"><span class="label-text svelte-owdzp8">Your Name</span>
+	<input form="contact-page-email" name="user-name" id="user-name" type="text"  class="svelte-owdzp8">
+	
+	
+	
+	
+	
+	
+</label>
+		<label for="user-email" form="contact-page-email" class="TextBase-outer svelte-owdzp8" style="grid-column-end: span 6;"><span class="label-text svelte-owdzp8">Your Email</span>
+	
+	<input form="contact-page-email" name="user-email" id="user-email" type="email"  class="svelte-owdzp8">
+	
+	
+	
+	
+	
+</label>
+		<label for="recipient" form="contact-page-email" class="Select-outer svelte-qivoto" style="grid-column-end: span 4;"><span class="label-text svelte-qivoto">To</span>
+	<select form="contact-page-email" id="recipient" name="recipient" class="svelte-qivoto"><option value="church">Church</option>
+			<option value="school">School</option></select>
+</label>
+		<label for="subject" form="contact-page-email" class="TextBase-outer svelte-owdzp8" style="grid-column-start: 1; grid-column-end: span 9;"><span class="label-text svelte-owdzp8">Subject</span>
+	<input form="contact-page-email" name="subject" id="subject" type="text"  class="svelte-owdzp8">
+	
+	
+	
+	
+	
+	
+</label>
+		<label for="body" form="contact-page-email" class="TextArea-outer svelte-1alq3i6" style="grid-column-start: 1; grid-column-end: span 9;">
+	<textarea form="contact-page-email" id="body" name="body" rows="8" required class="svelte-1alq3i6"></textarea>
+</label>
+		<input type="hidden" name="from_name" value="Website Email (church)">
+<button type="submit" formaction="https://api.web3forms.com/submit" formmethod="post" style="font-size: inherit; padding-block: 0.3rem; grid-column: 1 / span 2;">Send</button>
+
+<input type="hidden" name="access_key" value="b88462e0-ea59-4b42-8fc7-a819df01565d">
+	
+</form>
 </div>
 </div>
 
@@ -97,7 +139,7 @@
 			
 			<script>
 				{
-					__sveltekit_1tyalqu = {
+					__sveltekit_d5grau = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -107,8 +149,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.995db51d.js"),
-						import("./_app/immutable/entry/app.07bd66c6.js")
+						import("./_app/immutable/entry/start.95e75715.js"),
+						import("./_app/immutable/entry/app.2881c13f.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 8],
