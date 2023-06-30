@@ -37,9 +37,9 @@
 						prog !== 'STEM' &&
 						prog !== 'PE'
 					) {
-						return { href: `/school/programs/#K-5`, text: prog };
+						return { href: `/school/programs#K-5`, text: prog };
 					} else {
-						return { href: `/school/programs/#${prog}`, text: prog };
+						return { href: `/school/programs#${prog}`, text: prog };
 					}
 			  })
 			: null;

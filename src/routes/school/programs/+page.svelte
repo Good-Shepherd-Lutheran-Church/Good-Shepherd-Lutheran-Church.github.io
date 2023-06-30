@@ -8,6 +8,7 @@
 	import { schoolPrograms } from '$lib/utils/ImageImports/ImageImports';
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Button from '$components/Button.svelte';
+	import TocTarget from '$components/TocTarget.svelte';
 
 	function getTeachers(program: string) {
 		if (
@@ -53,6 +54,9 @@
 	<title>School Programs</title>
 </svelte:head>
 
+<div class="todo-program" id="PE" />
+<div class="todo-program" id="STEM" />
+
 {#each Programs as program, i}
 	<MainBlock maxWidth="80ex">
 		<Title title={program.name} />
@@ -79,4 +83,7 @@
 {/each}
 
 <style lang="scss">
+	.todo-program {
+		visibility: hidden;
+	}
 </style>

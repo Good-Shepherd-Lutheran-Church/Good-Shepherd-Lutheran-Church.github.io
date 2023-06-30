@@ -6,9 +6,9 @@
 
 	let id: string;
 	if (tocTitle !== null) {
-		id = tocTitle.replace(/\W/g, '');
+		id = tocTitle;
 	} else {
-		id = title.replace(/\W/g, '');
+		id = title;
 	}
 
 	const hasCollided = () => {
