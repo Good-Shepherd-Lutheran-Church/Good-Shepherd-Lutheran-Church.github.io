@@ -19,7 +19,7 @@
 		) {
 			return Persons.filter((person) => person.program?.includes(program)).map((teacher) => {
 				return {
-					href: `/school/staff/#${teacher.name.replace(/ |\'|\./g, '')}`,
+					href: `/school/staff#${teacher.name.replace(/ |\'|\./g, '')}`,
 					text: teacher.name
 				};
 			});
@@ -35,7 +35,7 @@
 				);
 			}).map((teacher) => {
 				return {
-					href: `/school/staff/#${teacher.name.replace(/ |\'|\./g, '')}`,
+					href: `/school/staff#${teacher.name.replace(/ |\'|\./g, '')}`,
 					text: teacher.name
 				};
 			});
