@@ -26,3 +26,24 @@ interface FontIcon {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type BPNames = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+type OneThruTwelve = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type OneThruSix = 1 | 2 | 3 | 4 | 5 | 6;
+
+type Spacing = {
+	margin?: string;
+	marginInline?: string;
+	marginInlineStart?: string;
+	marginInlineEnd?: string;
+	marginBlock?: string;
+	marginBlockStart?: string;
+	marginBlockEnd?: string;
+
+	padding?: string;
+	paddingInline?: string;
+	paddingInlineStart?: string;
+	paddingInlineEnd?: string;
+	paddingBlock?: string;
+	paddingBlockStart?: string;
+	paddingBlockEnd?: string;
+};

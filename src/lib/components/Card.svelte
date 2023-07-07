@@ -77,8 +77,8 @@
 		.title {
 			display: flex;
 			justify-content: center;
-			background-color: var(--cardTitleBgColor, var(--navbarBgColor));
-			color: var(--cardTitleColor, var(--navbarColor));
+			background-color: var(--cardTitleBgColor, var(--secondaryColor));
+			color: var(--cardTitleColor, var(--primaryColor));
 			padding: 0.8rem;
 			font-size: 1.5em;
 			text-decoration: none;

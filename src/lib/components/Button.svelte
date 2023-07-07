@@ -37,13 +37,13 @@
 		border: 1px solid gray;
 		text-decoration: none;
 		border-radius: 0.7em;
-		background-color: var(--buttonBgColor, var(--navbarColor, white));
-		color: var(--buttonColor, var(--navbarBgColor, black));
+		background-color: var(--buttonBgColor, var(--primaryColor, white));
+		color: var(--buttonColor, var(--secondaryColor, black));
 		transition: background-color 120ms ease, color 120ms ease;
 
 		&:hover {
-			background-color: var(--buttonColor, var(--navbarBgColor, black));
-			color: var(--buttonBgColor, var(--navbarColor, black));
+			background-color: var(--buttonColor, var(--secondaryColor, black));
+			color: var(--buttonBgColor, var(--primaryColor, black));
 		}
 
 		.icon {

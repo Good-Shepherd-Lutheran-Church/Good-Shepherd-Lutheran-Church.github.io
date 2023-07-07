@@ -2,7 +2,7 @@
 	export let iconClass: string | null = null;
 	export let text: string;
 	export let baseWeight: 'normal' | 'bold' | 'bolder' | number = 400;
-	export let hoverWeight: 'normal' | 'bold' | 'bolder' | number = 600;
+	export let hoverWeight: 'normal' | 'bold' | 'bolder' | number = 500;
 	export let hoverState: boolean = false;
 </script>
 

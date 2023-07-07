@@ -1,4 +1,5 @@
 <script context="module" lang="ts">
+	import { beforeNavigate } from '$app/navigation';
 	import { writable, type Writable } from 'svelte/store';
 	export let below: Writable<Record<BPNames, boolean | undefined>> = writable({
 		xs: false,
@@ -7,6 +8,8 @@
 		lg: undefined,
 		xl: undefined
 	});
+
+	export const zeroScroll: Writable<boolean> = writable(false);
 </script>
 
 <script lang="ts">
@@ -17,6 +20,8 @@
 		sm: 576,
 		xs: 0
 	};
+
+	export let zeroScrollMargin = 50;
 	let windowOuterWidth: number;
 
 	$: {
@@ -27,6 +32,14 @@
 			$below.xl = windowOuterWidth < breakpoints.xl ? true : false;
 		}
 	}
+
+	let scrollY: number;
+
+	$: {
+		if (scrollY !== undefined) {
+			$zeroScroll = scrollY <= zeroScrollMargin;
+		}
+	}
 </script>
 
-<svelte:window bind:outerWidth={windowOuterWidth} />
+<svelte:window bind:scrollY bind:outerWidth={windowOuterWidth} />

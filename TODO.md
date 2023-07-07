@@ -1,11 +1,25 @@
-PE and STEM in programs
-Drone video
-Tour
-Social media
-Youtube and FaceBook video pages
-Contact
-Map
-Calendar
-More pictures everywhere, but specifically on enrollment, church landing, school landing, and ministries
-Social media
-Make enums for breakpoints
+- More heroes
+- Titles on heroes
+- Social media
+- Youtube and FaceBook video pages
+- Calendar
+- Clean up styles. Sharper and less bold?
+- Create solution for automatic alt text
+- Add dark theme
+- Normalize CSS variables
+- More pictures everywhere, but specifically on enrollment, church landing, school landing, and ministries
+- Social media
+- PE and STEM in programs
+- Tour
+- Drone video
+- ~~Contact~~
+- ~~Map~~
+
+## Needed
+
+- Youth group blurb
+- More church images
+- PE and STEM blurbs
+- More school images
+- Virtual tour method
+- Drone video

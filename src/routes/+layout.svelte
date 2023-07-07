@@ -5,6 +5,7 @@
 	import { colors } from '$lib/colors';
 	import { onMount } from 'svelte';
 	import { forceSidebar } from '$lib/stores';
+	import CrossLogo from '$images/transparent-cross-white-scaled.png?url';
 
 	onMount(() => {
 		for (const color in $colors.lightTheme) {
@@ -19,7 +20,7 @@
 	class="main-content-grid"
 	class:no-sidebar={!$forceSidebar && ($tocList.size < 3 || $below.md)}
 >
-	<Navbar title="Good Shepherd" />
+	<Navbar title="Good Shepherd" src={CrossLogo} />
 	<div class="toc-wrapper">
 		<Toc />
 	</div>
@@ -27,7 +28,7 @@
 </div>
 
 <style lang="scss">
-	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto:wght@200;400;600&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@200;400;600&display=swap');
 
 	:root {
 		font-family: 'Roboto', sans-serif;

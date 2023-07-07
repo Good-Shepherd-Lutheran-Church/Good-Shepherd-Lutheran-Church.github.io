@@ -1,12 +1,17 @@
+<script context="module" lang="ts">
+	export const navbarStartsTransparent: Writable<boolean> = writable(false);
+</script>
+
 <script lang="ts">
 	import LinksFromPaths from '$utils/LinksFromPaths/LinksFromPaths';
 	import HoverBold from '$components/HoverBold.svelte';
-	import { below } from '$components/WindowWatcher.svelte';
+	import { below, zeroScroll } from '$components/WindowWatcher.svelte';
 	import { onMount } from 'svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { slide } from 'svelte/transition';
 	import { spring } from 'svelte/motion';
 	import Rotate from './Rotate.svelte';
+	import { writable, type Writable } from 'svelte/store';
 
 	export let homeHref: string = '/';
 	export let title: string | null = null;
@@ -36,6 +41,7 @@
 		});
 	});
 	beforeNavigate(() => {
+		$navbarStartsTransparent = false;
 		currentDropdown = null;
 		drawerOpen = false;
 	});
@@ -44,9 +50,17 @@
 	} else {
 		drawerOpen = false;
 	}
+	let isHovered: boolean = false;
 </script>
 
-<nav class="Navbar-outer" style:grid-column={cols}>
+<nav
+	class="Navbar-outer"
+	style:grid-column={cols}
+	class:transparent={!isHovered && $zeroScroll && $navbarStartsTransparent}
+	class:fixed={$navbarStartsTransparent}
+	on:mouseenter={() => (isHovered = true)}
+	on:mouseleave={() => (isHovered = false)}
+>
 	{#if src}
 		<div class="navbar-logo-container">
 			<a href={homeHref} class="navbar-top-link">
@@ -163,11 +177,22 @@
 			var(--secondaryColor),
 			var(--secondaryColorDark)
 		);
-		color: var(--navbarColor, white);
+		color: var(--primaryColor, white);
 		font-size: var(--navbarBaseFs, 1.4rem);
 		padding-inline: 1rem;
 		user-select: none;
 		z-index: 999;
+
+		&.fixed {
+			position: fixed;
+			top: 0;
+		}
+		&.transparent {
+			background-image: linear-gradient(
+				var(--secondaryColorTransparent),
+				var(--secondaryColorTransparent)
+			);
+		}
 
 		.navbar-top-link {
 			color: inherit;
@@ -215,20 +240,19 @@
 					border-radius: 0.2rem;
 					overflow: hidden;
 					row-gap: 0.3rem;
-					background-color: var(--dropdownBg, var(--navbarColor, white));
+					background-color: var(--dropdownBg, var(--primaryColor, white));
 
 					.dropdown-link {
 						font-size: var(--dropdownLinkFs, 1.3rem);
-						font-weight: bold;
 						text-transform: capitalize;
 						text-decoration: none;
-						color: var(--dropdownColor, var(--navbarBgColor, black));
-						background-color: var(--dropdownBg, var(--navbarColor, white));
+						color: var(--dropdownColor, var(--textColor, black));
+						background-color: var(--dropdownBg, var(--primaryColor, white));
 						padding-inline: 0.3rem;
 
 						&:hover {
-							color: var(--dropdownBg, var(--navbarColor, white));
-							background-color: var(--dropdownColor, var(--navbarBgColor, black));
+							color: var(--dropdownBg, var(--primaryColor, white));
+							background-color: var(--dropdownColor, var(--secondaryColorDark, black));
 						}
 					}
 				}
@@ -244,7 +268,7 @@
 			.navbar-subitem-group {
 				padding-inline-start: 0.3rem;
 				margin-inline-start: 10%;
-				border-inline-start: 2px solid var(--navbarColor, white);
+				border-inline-start: 2px solid var(--primaryColor, white);
 				.navbar-collapsed-subitem {
 					color: inherit;
 				}
