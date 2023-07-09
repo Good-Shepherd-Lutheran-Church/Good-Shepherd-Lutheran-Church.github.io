@@ -8,6 +8,7 @@ This is v5 of the site for the church and school.
 
 - Rebuilt navbar.
 - Fixed empty cell issues on Programs page caused by empty PE and STEM targets.
+- Added missing meta tags. SEO is still a WIP.
 
 ## Stack
 
