@@ -7,7 +7,7 @@
 
 <svelte:head>
 	<meta name="description" content="A page about the church's staff." />
-	<title>Church Directory</title>
+	<title>Good Shepherd - Directory</title>
 </svelte:head>
 
 <MainBlock>

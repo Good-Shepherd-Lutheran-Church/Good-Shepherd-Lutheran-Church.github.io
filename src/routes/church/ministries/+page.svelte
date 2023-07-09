@@ -13,7 +13,7 @@
 
 <svelte:head>
 	<meta name="description" content="A page about the church's ministries." />
-	<title>Ministries</title>
+	<title>Good Shepherd - Ministries</title>
 </svelte:head>
 
 <MainBlock maxWidth="90ex">

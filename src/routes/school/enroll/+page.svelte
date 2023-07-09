@@ -9,6 +9,11 @@
 	import { schoolLanding } from '$utils/ImageImports/ImageImports';
 </script>
 
+<svelte:head>
+	<meta name="description" content="Information about enrollment and scholarships." />
+	<title>GLSC School - Enroll</title>
+</svelte:head>
+
 <MainBlock maxWidth="90ex">
 	<Title title="2023-2024 Tuition Rates and Rules" tocTitle="Tuition" />
 	<Article

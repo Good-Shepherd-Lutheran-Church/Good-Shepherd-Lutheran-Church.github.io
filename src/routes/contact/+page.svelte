@@ -22,6 +22,14 @@
 	});
 </script>
 
+<svelte:head>
+	<meta
+		name="description"
+		content="Phone numbers, address, and an email submission form for the church and school."
+	/>
+	<title>GSLC Contact</title>
+</svelte:head>
+
 <MainBlock maxWidth="70ex">
 	<Title title="Telephone" />
 	<AutoGrid>

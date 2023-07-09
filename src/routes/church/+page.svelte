@@ -7,6 +7,11 @@
 	import Hero from '$components/Hero.svelte';
 </script>
 
+<svelte:head>
+	<meta name="description" content="A landing page for the church side of the site." />
+	<title>Good Shepherd</title>
+</svelte:head>
+
 <Hero imageEntry={churchLanding.fuzz('pews')} height="60vh">
 	<div class="church-landing-buttons">
 		<AutoGrid min="220px">

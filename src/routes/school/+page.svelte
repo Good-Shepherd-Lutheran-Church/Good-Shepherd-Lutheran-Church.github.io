@@ -3,11 +3,14 @@
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Button from '$components/Button.svelte';
 	import MainBlock from '$components/MainBlock.svelte';
-	import SubHeading from '$components/SubHeading.svelte';
-	import Table from '$components/Table.svelte';
 	import Title from '$components/Title.svelte';
 	import { schoolLanding } from '$utils/ImageImports/ImageImports';
 </script>
+
+<svelte:head>
+	<meta name="description" content="A landing page for the school." />
+	<title>GSLC School</title>
+</svelte:head>
 
 <MainBlock maxWidth="90ex">
 	<Article

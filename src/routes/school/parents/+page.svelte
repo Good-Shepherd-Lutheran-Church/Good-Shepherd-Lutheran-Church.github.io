@@ -5,6 +5,11 @@
 	import Title from '$components/Title.svelte';
 </script>
 
+<svelte:head>
+	<meta name="description" content="FAQ for parents." />
+	<title>GSLC School - Parents</title>
+</svelte:head>
+
 <MainBlock maxWidth="74ex">
 	<Title title="Uniforms" />
 	<Article

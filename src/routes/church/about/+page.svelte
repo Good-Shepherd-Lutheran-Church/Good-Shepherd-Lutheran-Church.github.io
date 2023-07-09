@@ -13,7 +13,7 @@
 
 <svelte:head>
 	<meta name="description" content="A page about the Church and the Faith." />
-	<title>About the Church</title>
+	<title>Good Shepherd - About</title>
 </svelte:head>
 
 <MainBlock maxWidth="90ex">

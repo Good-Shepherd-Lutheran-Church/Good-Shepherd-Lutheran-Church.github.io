@@ -12,6 +12,14 @@
 	$navbarStartsTransparent = true;
 </script>
 
+<svelte:head>
+	<meta
+		name="description"
+		content="Main landing page for Good Shepherd Lutheran Church in Gulf Breeze, Florida."
+	/>
+	<title>Good Shepherd</title>
+</svelte:head>
+
 <Hero shadeMode={null} height="80vh" imageEntry={mainLanding.fuzz('church_at_sunrise')}>
 	<HeroTitle
 		text={['Lutheran Church and School', 'Gulf Breeze, Florida']}

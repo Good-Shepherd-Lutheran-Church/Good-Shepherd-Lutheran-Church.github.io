@@ -51,7 +51,7 @@
 
 <svelte:head>
 	<meta name="description" content="A page that describes our school programs." />
-	<title>School Programs</title>
+	<title>GSLC School - Programs</title>
 </svelte:head>
 
 {#each Programs as program, i}

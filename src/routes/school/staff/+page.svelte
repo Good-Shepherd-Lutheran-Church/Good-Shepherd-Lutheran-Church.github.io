@@ -48,7 +48,7 @@
 
 <svelte:head>
 	<meta name="description" content="A directory of school teachers and administrators." />
-	<title>School Staff Directory</title>
+	<title>GSLC School - Staff</title>
 </svelte:head>
 
 <MainBlock>
