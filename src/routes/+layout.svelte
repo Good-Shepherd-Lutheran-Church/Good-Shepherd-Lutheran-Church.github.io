@@ -20,7 +20,7 @@
 	class="main-content-grid"
 	class:no-sidebar={!$forceSidebar && ($tocList.size < 3 || $below.md)}
 >
-	<Navbar title="Good Shepherd" src={CrossLogo} />
+	<Navbar title="Good Shepherd" logoSrc={CrossLogo} />
 	<div class="toc-wrapper">
 		<Toc />
 	</div>
@@ -31,10 +31,8 @@
 	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@200;400;600&display=swap');
 
 	:root {
-		font-family: 'Roboto', sans-serif;
+		font-family: 'Montserrat', sans-serif;
 		--softShadow: 0px 0px 8px 5px #ddd;
-		--navbarBgColor: rgb(2, 86, 147);
-		--navbarColor: white;
 		scroll-behavior: smooth !important;
 	}
 	:global(*) {

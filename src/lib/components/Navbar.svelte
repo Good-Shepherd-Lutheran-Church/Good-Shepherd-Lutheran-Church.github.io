@@ -3,190 +3,146 @@
 </script>
 
 <script lang="ts">
+	import NavButton from '$components/NavButton.svelte';
 	import LinksFromPaths from '$utils/LinksFromPaths/LinksFromPaths';
-	import HoverBold from '$components/HoverBold.svelte';
-	import { below, zeroScroll } from '$components/WindowWatcher.svelte';
 	import { onMount } from 'svelte';
-	import { beforeNavigate } from '$app/navigation';
+	import Rotate from '$components/Rotate.svelte';
+	import { below, scrollIsTop } from '$components/WindowWatcher.svelte';
 	import { slide } from 'svelte/transition';
-	import { spring } from 'svelte/motion';
-	import Rotate from './Rotate.svelte';
+	import { quintIn } from 'svelte/easing';
+	import { beforeNavigate } from '$app/navigation';
 	import { writable, type Writable } from 'svelte/store';
 
 	export let homeHref: string = '/';
+	export let logoSrc: string | null = null;
+	export let logoAlt: string | null = null;
 	export let title: string | null = null;
-	export let subtitle: string | null = null;
-	export let src: string | null = null;
-	export let alt: string = 'Our Logo';
-	export let dropdownIcon: FontIcon = { class: 'material-symbols-outlined', text: 'chevron_right' };
-	export let menuIcon: FontIcon = { class: 'material-symbols-outlined', text: 'menu' };
+	export let dropIcon: FontIcon = { text: 'chevron_right', class: 'material-symbols-outlined' };
+	export let menuIcon: FontIcon = { text: 'menu', class: 'material-symbols-outlined' };
 	export let cols: string = '1 / 3';
 
-	const rootDirectories = new LinksFromPaths().rootDirectory.subdirectories;
-	let drawerOpen = false;
-	let currentDropdown: number | null;
-	const menuIconRotation = spring(0, { damping: 0.4 });
-	$: $menuIconRotation = drawerOpen ? 90 : 0;
-	function dropdownClicked(i: number) {
-		if (i === currentDropdown) {
-			currentDropdown = null;
-		} else {
-			currentDropdown = i;
-		}
-	}
+	const topDirectories = new LinksFromPaths().rootDirectory.subdirectories;
+
+	// Handle drawer
+	let drawerOpen: boolean = true;
+	const menuClicked = () => {
+		drawerOpen = !drawerOpen;
+	};
+
+	// Handle dropdowns
+	let currentDropdown: string | null = null;
+	const dropdownClicked = (dropdownName: string) => {
+		currentDropdown = dropdownName === currentDropdown ? null : dropdownName;
+	};
 	onMount(() => {
 		window.addEventListener('click', () => {
 			currentDropdown = null;
 			drawerOpen = false;
 		});
 	});
+
 	beforeNavigate(() => {
 		$navbarStartsTransparent = false;
-		currentDropdown = null;
-		drawerOpen = false;
 	});
-	$: if ($below.sm) {
-		currentDropdown = null;
-	} else {
-		drawerOpen = false;
-	}
-	let isHovered: boolean = false;
 </script>
 
 <nav
 	class="Navbar-outer"
 	style:grid-column={cols}
-	class:transparent={!isHovered && $zeroScroll && $navbarStartsTransparent}
-	class:fixed={$navbarStartsTransparent}
-	on:mouseenter={() => (isHovered = true)}
-	on:mouseleave={() => (isHovered = false)}
+	style:position={$navbarStartsTransparent ? 'fixed' : 'sticky'}
+	class:transparent={$navbarStartsTransparent && $scrollIsTop}
 >
-	{#if src}
-		<div class="navbar-logo-container">
-			<a href={homeHref} class="navbar-top-link">
-				<img {src} {alt} />
-			</a>
-		</div>
+	<svelte:element this={logoSrc ? 'img' : null} class="logo" src={logoSrc} alt={logoAlt} />
+
+	{#if title !== null}
+		<div class="title"><NavButton text={title} href={homeHref} /></div>
 	{/if}
 
-	{#if title}
-		<div class="navbar-title-container">
-			<a href={homeHref} class="navbar-top-link"><HoverBold text={title} /></a>
-		</div>
-	{/if}
-
-	{#if subtitle}
-		<div class="navbar-subtitle-container">
-			<a href={homeHref} class="navbar-top-link"><HoverBold text={subtitle} /></a>
-		</div>
-	{/if}
-
-	<div class="navbar-links-expanded">
-		{#if !$below.sm}
-			{#each rootDirectories as topDirectory, i}
-				{#if topDirectory.subdirectories.length}
-					<div class="dropdown">
+	{#if !$below.md}
+		<div class="top-links">
+			{#each topDirectories as topItem}
+				{#if topItem.subdirectories.length}
+					<menu class="dropdown">
 						<div
-							class="dropdown-indicator"
-							on:click|stopPropagation={() => dropdownClicked(i)}
-							on:keypress|stopPropagation={() => dropdownClicked(i)}
+							class="dropdown-button"
+							on:click|stopPropagation={() => dropdownClicked(topItem.name)}
+							on:keypress|stopPropagation={() => dropdownClicked(topItem.name)}
+							role="button"
+							tabindex="0"
 						>
-							<Rotate state={currentDropdown === i}
-								><HoverBold iconClass={dropdownIcon.class} text={dropdownIcon.text} /></Rotate
-							>
+							<Rotate state={currentDropdown === topItem.name}>
+								<NavButton fontIcon={dropIcon} />
+							</Rotate>
 						</div>
-						<div class="dropdown-label">
-							<a href={topDirectory.currentPath} class="navbar-top-link"
-								><HoverBold text={topDirectory.name} /></a
+						<NavButton href={topItem.currentPath} text={topItem.name} />
+						{#if currentDropdown === topItem.name}
+							<div
+								class="dropdown-item-container"
+								transition:slide={{ duration: 220, easing: quintIn }}
 							>
-						</div>
-						{#if i === currentDropdown}
-							<div class="dropdown-link-container" transition:slide={{ duration: 80 }}>
-								{#each topDirectory.subdirectories as subdirectory}
-									<a href={subdirectory.currentPath} class="dropdown-link">{subdirectory.name}</a>
+								{#each topItem.subdirectories as bottomItem}
+									<a href={bottomItem.currentPath} class="dropdown-item">{bottomItem.name}</a>
 								{/each}
 							</div>
 						{/if}
-					</div>
+					</menu>
 				{:else}
-					<a
-						href={topDirectory.currentPath}
-						class="navbar-top-link"
-						style:order={topDirectory.name === 'contact' ? '9' : null}
-						><HoverBold text={topDirectory.name} /></a
-					>
+					<NavButton
+						href={topItem.currentPath}
+						text={topItem.name}
+						order={topItem.name === 'contact' ? '-1' : null}
+					/>
 				{/if}
 			{/each}
-		{/if}
+		</div>
+	{/if}
+
+	{#if $below.md && drawerOpen}
+		<div class="drawer" transition:slide>
+			{#each topDirectories as topItem}
+				<div class="drawer-top-link" style:order={topItem.name === 'contact' ? '-1' : null}>
+					<NavButton text={topItem.name} href={topItem.currentPath} />
+				</div>
+				{#each topItem.subdirectories as bottomItem}
+					<div class="drawer-bottom-link">
+						<NavButton text={bottomItem.name} href={bottomItem.currentPath} />
+					</div>
+				{/each}
+			{/each}
+		</div>
+	{/if}
+
+	<div
+		class="menu-button"
+		on:click|stopPropagation={menuClicked}
+		on:keypress|stopPropagation={menuClicked}
+		style:display={$below.md ? 'grid' : 'none'}
+	>
+		<Rotate state={drawerOpen}>
+			<NavButton fontIcon={menuIcon} />
+		</Rotate>
 	</div>
-
-	{#if $below.sm}
-		<div
-			class="navbar-toggle"
-			on:click|stopPropagation={() => {
-				drawerOpen = !drawerOpen;
-			}}
-			on:keypress|stopPropagation={() => {
-				drawerOpen = !drawerOpen;
-			}}
-		>
-			<Rotate state={drawerOpen}
-				><HoverBold iconClass={menuIcon.class} text={menuIcon.text} /></Rotate
-			>
-		</div>
-	{/if}
-
-	{#if $below.sm && drawerOpen}
-		<div class="navbar-links-collapsed" transition:slide>
-			{#each rootDirectories as topDirectory}
-				<a href={topDirectory.currentPath} class="navbar-collapsed-item"
-					><HoverBold text={topDirectory.name} /></a
-				>
-				{#if topDirectory.subdirectories.length}
-					{#each topDirectory.subdirectories as subitem}
-						<div class="navbar-subitem-group">
-							<a href={subitem.currentPath} class="navbar-collapsed-subitem"
-								><HoverBold text={subitem.name} /></a
-							>
-						</div>
-					{/each}
-				{/if}
-			{/each}
-		</div>
-	{/if}
 </nav>
 
 <style lang="scss">
-	nav.Navbar-outer {
-		box-shadow: 0px 0px 2px 2px #0005;
-		justify-self: stretch !important;
-		position: sticky;
-		top: 0px;
-		left: 0px;
-		right: 0px;
-		font-family: var(--navbarFont, 'Montserrat', sans-serif);
-		font-weight: 300;
+	.Navbar-outer {
+		z-index: 100;
+		top: 0;
+		left: 0;
+		right: 0;
+		font-family: 'Roboto', sans-serif;
+		font-size: 1.4rem;
+		column-gap: 1rem;
+		padding-inline: 0.5rem;
 		display: grid;
+		justify-self: stretch;
+		background-image: linear-gradient(to bottom, var(--secondaryColor), var(--secondaryColorDark));
 		grid-template:
-			'logo title subtitle expanded toggle' var(--navbarHeight, 3rem)
-			'drawer drawer drawer drawer drawer'
-			/ auto auto 1fr auto auto;
-		align-items: center;
-		background-image: linear-gradient(
-			to bottom left,
-			var(--secondaryColor),
-			var(--secondaryColorDark)
-		);
-		color: var(--primaryColor, white);
-		font-size: var(--navbarBaseFs, 1.4rem);
-		padding-inline: 1rem;
+			'logo title links bars' 3rem
+			'drawer drawer drawer drawer' auto;
+		grid-template-columns: auto 1fr auto auto;
 		user-select: none;
-		z-index: 999;
 
-		&.fixed {
-			position: fixed;
-			top: 0;
-		}
 		&.transparent {
 			background-image: linear-gradient(
 				var(--secondaryColorTransparent),
@@ -194,89 +150,79 @@
 			);
 		}
 
-		.navbar-top-link {
-			color: inherit;
-			text-decoration: none;
-		}
-
-		.navbar-logo-container {
+		.logo {
 			grid-area: logo;
+			align-self: center;
 		}
 
-		.navbar-title-container {
+		.title {
+			display: grid;
+			height: 100%;
 			grid-area: title;
-			font-size: var(--navbarTitleFs, 1.6rem);
+			margin-inline-end: auto;
+			font-size: 120%;
 		}
 
-		.navbar-subtitle-container {
-			grid-area: subtitle;
-		}
-
-		.navbar-links-expanded {
-			grid-area: expanded;
-			display: flex;
-			column-gap: 1rem;
-			justify-items: center;
-			align-items: center;
+		.top-links {
+			display: grid;
+			column-gap: 0.8rem;
+			grid-auto-flow: column;
+			grid-area: links;
+			height: 100%;
 
 			.dropdown {
-				display: flex;
-				align-items: center;
+				display: grid;
+				grid-auto-flow: column;
 				position: relative;
+				height: 100%;
 
-				.dropdown-indicator {
-					font-size: 120%;
-					margin-inline-end: -4px;
-					cursor: pointer;
-				}
-
-				.dropdown-link-container {
-					display: flex;
-					flex-flow: column nowrap;
+				.dropdown-item-container {
+					display: grid;
 					position: absolute;
-					top: calc(var(--navbarHeight, 2rem));
-					right: 30%;
-					border: 1px solid gray;
-					border-radius: 0.2rem;
-					overflow: hidden;
-					row-gap: 0.3rem;
-					background-color: var(--dropdownBg, var(--primaryColor, white));
+					top: calc(3rem * 0.9);
+					right: 20%;
+					background-color: white;
+					padding-block: 0.3rem;
+					border-radius: 0.5rem;
+					box-shadow: 0 0 5px gray;
 
-					.dropdown-link {
-						font-size: var(--dropdownLinkFs, 1.3rem);
-						text-transform: capitalize;
+					.dropdown-item {
+						color: var(--textColor);
 						text-decoration: none;
-						color: var(--dropdownColor, var(--textColor, black));
-						background-color: var(--dropdownBg, var(--primaryColor, white));
-						padding-inline: 0.3rem;
+						text-transform: capitalize;
+						padding: 0.1rem 0.8rem;
+						background-color: var(--primaryColor);
 
 						&:hover {
-							color: var(--dropdownBg, var(--primaryColor, white));
-							background-color: var(--dropdownColor, var(--secondaryColorDark, black));
+							text-decoration: underline;
 						}
 					}
 				}
 			}
 		}
 
-		.navbar-links-collapsed {
-			grid-area: drawer;
-			padding-block: 1rem;
-			.navbar-collapsed-item {
-				color: inherit;
-			}
-			.navbar-subitem-group {
-				padding-inline-start: 0.3rem;
-				margin-inline-start: 10%;
-				border-inline-start: 2px solid var(--primaryColor, white);
-				.navbar-collapsed-subitem {
-					color: inherit;
-				}
-			}
+		.menu-button {
+			grid-area: bars;
+			overflow-x: hidden;
 		}
 
-		.navbar-toggle {
-			grid-area: toggle;
+		.drawer {
+			grid-area: drawer;
+			display: grid;
+			padding-block-end: 1rem;
+
+			.drawer-top-link {
+				justify-self: start;
+				margin-block-start: 0.8rem;
+				margin-block-end: 0.2rem;
+			}
+
+			.drawer-bottom-link {
+				justify-self: start;
+				margin-inline-start: 2rem;
+				border-inline-start: 2px solid white;
+				padding-inline-start: 0.3rem;
+			}
 		}
 	}
 </style>

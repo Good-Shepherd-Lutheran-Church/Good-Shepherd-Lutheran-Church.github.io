@@ -54,11 +54,12 @@
 	<title>School Programs</title>
 </svelte:head>
 
-<div class="todo-program" id="PE" />
-<div class="todo-program" id="STEM" />
-
 {#each Programs as program, i}
 	<MainBlock maxWidth="80ex">
+		{#if i === 0}
+			<div class="todo-program" id="PE" />
+			<div class="todo-program" id="STEM" />
+		{/if}
 		<Title title={program.name} />
 		<Article
 			text={program.description}

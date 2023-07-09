@@ -42,6 +42,7 @@
 		justify-items: center;
 		color: var(--tocColor, gray);
 		font-size: 1.2rem;
+		grid-row-end: span 2;
 		padding: 1rem;
 		max-width: 100%;
 		overflow: hidden;

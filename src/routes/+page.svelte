@@ -6,17 +6,14 @@
 	import Hero from '$components/Hero.svelte';
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Card from '$components/Card.svelte';
-	import PageTitle from '$components/PageTitle.svelte';
+	import HeroTitle from '$components/HeroTitle.svelte';
 	import { navbarStartsTransparent } from '$components/Navbar.svelte';
-	import { onMount } from 'svelte';
 
-	onMount(() => {
-		$navbarStartsTransparent = true;
-	});
+	$navbarStartsTransparent = true;
 </script>
 
 <Hero shadeMode={null} height="80vh" imageEntry={mainLanding.fuzz('church_at_sunrise')}>
-	<PageTitle
+	<HeroTitle
 		text={['Lutheran Church and School', 'Gulf Breeze, Florida']}
 		headingSizes={[2, 3]}
 		radius="10px"

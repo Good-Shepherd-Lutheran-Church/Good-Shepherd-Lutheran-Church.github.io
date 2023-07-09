@@ -1,5 +1,4 @@
 <script context="module" lang="ts">
-	import { beforeNavigate } from '$app/navigation';
 	import { writable, type Writable } from 'svelte/store';
 	export let below: Writable<Record<BPNames, boolean | undefined>> = writable({
 		xs: false,
@@ -9,7 +8,7 @@
 		xl: undefined
 	});
 
-	export const zeroScroll: Writable<boolean> = writable(false);
+	export const scrollIsTop: Writable<boolean> = writable(true);
 </script>
 
 <script lang="ts">
@@ -37,7 +36,7 @@
 
 	$: {
 		if (scrollY !== undefined) {
-			$zeroScroll = scrollY <= zeroScrollMargin;
+			$scrollIsTop = scrollY <= zeroScrollMargin;
 		}
 	}
 </script>

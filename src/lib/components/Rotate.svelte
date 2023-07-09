@@ -18,6 +18,7 @@
 
 <style lang="scss">
 	.Rotate-outer {
-		display: flex;
+		display: grid;
+		height: 100%;
 	}
 </style>
