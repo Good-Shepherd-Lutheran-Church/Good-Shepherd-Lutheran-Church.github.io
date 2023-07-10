@@ -8,26 +8,12 @@
 	import SubHeading from '$components/SubHeading.svelte';
 	import Title from '$components/Title.svelte';
 	import { churchAbout, lifeTogether } from '$utils/ImageImports/ImageImports';
-	import Gallery from '$components/Gallery.svelte';
 </script>
 
 <svelte:head>
 	<meta name="description" content="A page about the Church and the Faith." />
 	<title>Good Shepherd - About</title>
 </svelte:head>
-
-<MainBlock maxWidth="90ex">
-	<Title title="Life Together" />
-	<Article
-		text="As the Body of Christ, the Christian life is a life lived in community, together we walk through life
-  supporting one another, grieving with one another, sharing joy with one another, celebrating with one
-  another, and worshiping with one another. The rhythm of the year encourages us to gather, and to share
-  this life God has given to us. Here at Good Shepherd, we are all about living life together, whether that be
-  volunteering for Vacation Bible School, or attending one of our family events, or coming to our 5 th
-  Sunday Potluck, or even joining the youth on one of their many adventures."
-	/>
-	<Gallery autoplayDelayMs={3500} imageDirectory={lifeTogether} />
-</MainBlock>
 
 <MainBlock maxWidth="90ex">
 	<Title title="What We Believe" />

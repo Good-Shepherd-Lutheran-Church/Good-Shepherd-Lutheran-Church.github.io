@@ -32,7 +32,7 @@
 
 	:root {
 		font-family: 'Montserrat', sans-serif;
-		--softShadow: 0px 0px 8px 5px #ddd;
+		--softShadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 		scroll-behavior: smooth !important;
 	}
 	:global(*) {

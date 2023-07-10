@@ -5,6 +5,9 @@
 	import HoverBold from './HoverBold.svelte';
 	import Toggle from './Toggle.svelte';
 	import isVis from '$utils/IsVis/IsVis';
+	import { fly } from 'svelte/transition';
+	import { tick } from 'svelte';
+	import { cubicInOut } from 'svelte/easing';
 
 	export let imageDirectory: ImageDirectory;
 	export let title: string | null = null;
@@ -33,8 +36,15 @@
 	let thumbsEl: HTMLElement;
 	let thumbRefs: HTMLElement[] = [];
 	let autoplayHoverPause: boolean = false;
+	let inOutDistance: number = 900;
+	let inDirection: number = inOutDistance;
+	let outDirection: number = inOutDistance * -1;
+	const inOutDuration: number = 200;
 
-	function slideForward() {
+	async function slideForward() {
+		inDirection = inOutDistance;
+		outDirection = inOutDistance * -1;
+		await tick();
 		if (currentIndex >= imageDirectory.data.length - 1) {
 			currentIndex = 0;
 		} else {
@@ -43,7 +53,10 @@
 		autoScrollThumbs();
 	}
 
-	function slideBack() {
+	async function slideBack() {
+		inDirection = inOutDistance * -1;
+		outDirection = inOutDistance;
+		await tick();
 		if (currentIndex === 0) {
 			currentIndex = imageDirectory.data.length - 1;
 		} else {
@@ -86,7 +99,13 @@
 		>
 			{#each imageDirectory.data as slideEntry, i}
 				{#if i === currentIndex}
-					<Image loading={i <= 3 ? 'eager' : 'lazy'} imageEntry={slideEntry} />
+					<div
+						class="image-wrapper"
+						in:fly={{ duration: inOutDuration, x: inDirection, delay: inOutDuration }}
+						out:fly={{ duration: inOutDuration, x: outDirection }}
+					>
+						<Image loading={i <= 3 ? 'eager' : 'lazy'} imageEntry={slideEntry} />
+					</div>
 				{/if}
 			{/each}
 		</div>
@@ -181,6 +200,7 @@
 				align-items: center;
 				font-size: 3rem;
 				height: 100%;
+				color: var(--textPrimaryColor);
 			}
 			.thumb-button {
 				display: flex;
@@ -200,6 +220,11 @@
 				display: flex;
 				grid-area: viewport;
 				width: 100%;
+				overflow: hidden;
+				.image-wrapper {
+					display: flex;
+					width: 100%;
+				}
 			}
 			.slide-forward {
 				grid-area: slide-forward;
