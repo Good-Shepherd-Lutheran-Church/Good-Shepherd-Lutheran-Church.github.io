@@ -35,6 +35,7 @@
 <style lang="scss">
 	.Toc-outer {
 		margin-block-start: 3rem;
+		margin-inline: 1rem;
 		align-self: start;
 		justify-self: center;
 		position: sticky;

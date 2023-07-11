@@ -18,6 +18,11 @@ This is v5 of the site for the church and school.
 - Added "Still Need" section to this document.
 - Added more details to the Details section of this document.
 
+#### 7/10/23
+
+- Turned copied PDF calendar to Google Calendar.
+- Added calendar to school. Still need church.
+
 ## Still Need
 
 - PE blurb.

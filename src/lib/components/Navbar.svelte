@@ -24,7 +24,7 @@
 	const topDirectories = new LinksFromPaths().rootDirectory.subdirectories;
 
 	// Handle drawer
-	let drawerOpen: boolean = true;
+	let drawerOpen: boolean = false;
 	const menuClicked = () => {
 		drawerOpen = !drawerOpen;
 	};
@@ -160,7 +160,6 @@
 			height: 100%;
 			grid-area: title;
 			margin-inline-end: auto;
-			font-size: 120%;
 		}
 
 		.top-links {

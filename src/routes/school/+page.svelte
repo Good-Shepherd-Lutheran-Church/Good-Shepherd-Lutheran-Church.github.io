@@ -5,6 +5,15 @@
 	import MainBlock from '$components/MainBlock.svelte';
 	import Title from '$components/Title.svelte';
 	import { schoolLanding } from '$utils/ImageImports/ImageImports';
+	import { onMount } from 'svelte';
+	import { below } from '$components/WindowWatcher.svelte';
+
+	let calendarMode: string = 'MONTH';
+	onMount(() => {
+		if ($below.md) {
+			calendarMode = 'AGENDA';
+		}
+	});
 </script>
 
 <svelte:head>
@@ -38,10 +47,13 @@
 	<Title title="School Supply List" />
 	<Article
 		centerText
-		text={['We would appreciate any help with these items. They are not mandatory.', 'Thank you!']}
+		text={[
+			'We would appreciate any help with these items. They are not mandatory.',
+			'<strong>Thank you!</strong>'
+		]}
 	/>
 	<Article centerText>
-		<AutoGrid justify="end" min="15rem">
+		<AutoGrid justify="space-between" min="15rem">
 			<li>Paper towels</li>
 			<li>Clorox wipes</li>
 			<li>Kleenex</li>
@@ -68,4 +80,16 @@
 			<li>Black ink pens</li>
 		</AutoGrid>
 	</Article>
+</MainBlock>
+
+<MainBlock maxWidth="100ex">
+	<Title title="School Calendar" />
+	<iframe
+		src={`https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FChicago&mode=${calendarMode}&src=NzFkNzRmZTZhZGQwYTFhNTRlMjFhNGVhN2FkMmFhNzRkZmQyMWRlZjMwZGVjMzAyZTc5OTU5ODcwYjJlYjhkNUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23009688`}
+		style="border:solid 1px #777"
+		style:width="100%"
+		style:height="100vh"
+		frameborder="0"
+		scrolling="no"
+	/>
 </MainBlock>
