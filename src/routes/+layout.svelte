@@ -6,6 +6,7 @@
 	import { onMount } from 'svelte';
 	import { forceSidebar } from '$lib/stores';
 	import CrossLogo from '$images/transparent-cross-white-scaled.png?url';
+	import SocialFooter from '$components/SocialFooter.svelte';
 
 	onMount(() => {
 		for (const color in $colors.lightTheme) {
@@ -25,6 +26,12 @@
 		<Toc />
 	</div>
 	<slot />
+	<SocialFooter
+		youtubeUrl="https://www.youtube.com/channel/UC1PRwM4YbwVtlsNgqthGdyw"
+		facebookUrl="https://www.facebook.com/GoodShepherdGB/"
+		copyrightOwner="Good Shepherd Lutheran Church"
+		copyrightDates="2023"
+	/>
 </div>
 
 <style lang="scss">

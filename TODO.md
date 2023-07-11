@@ -2,7 +2,7 @@
 
 1. ~~SEO~~
 2. ~~Navbar~~
-3. Social footer
+3. ~~Social footer~~
 4. ~~Move Life Together to church landing~~
 5. Flesh out all landings
 6. Youthgroup

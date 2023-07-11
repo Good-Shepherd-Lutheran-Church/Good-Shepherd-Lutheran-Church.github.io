@@ -23,6 +23,10 @@ This is v5 of the site for the church and school.
 - Turned copied PDF calendar to Google Calendar.
 - Added calendar to school. Still need church.
 
+#### 7/11/23
+
+- Added footer with copyright and social media icons. These will appear at the bottom of every page.
+
 ## Still Need
 
 - PE blurb.
