@@ -26,6 +26,7 @@ This is v5 of the site for the church and school.
 - There are now two stores exported by Navbar.svelte,
   - `navbarStartsTransparent`: If set to true, the navbar will be transparent until the window is scrolled. The scroll position comes from the store `scrollIsTop` in WindowWatcher.svelte in the main layout.
   - `navbarStartsUntitled`: Same rules as `navbarStartsTransparent` except the navbar title will fade in on scroll. This is so the main landing page doesn't have redundant titles.
+- Changed default break width in AutoGrid.svelte. Cards should be actually responsive on short width screens.
 
 ## Still Need
 

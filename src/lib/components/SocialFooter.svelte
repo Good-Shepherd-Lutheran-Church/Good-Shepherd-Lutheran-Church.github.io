@@ -1,6 +1,7 @@
 <script lang="ts">
 	import FacebookLogo from '$images/social-icons/FindUsOn_Header_2019.png';
 	import YouTubeLogo from '$images/social-icons/yt_logo_rgb_light.png';
+	import { below } from '$components/WindowWatcher.svelte';
 
 	export let facebookUrl: string | null = null;
 	export let youtubeUrl: string | null = null;
@@ -10,7 +11,7 @@
 </script>
 
 <div class="SocialFooter-outer" style:grid-column={cols}>
-	<div class="social-icons">
+	<div class="social-icons" style:flex-direction={$below.md ? 'column' : 'row'}>
 		<svelte:element this={facebookUrl !== null ? 'a' : null} href={facebookUrl} target="_blank">
 			<img src={FacebookLogo} alt="Facebook icon that links to our Facebook page." />
 		</svelte:element>
@@ -35,7 +36,8 @@
 
 		.social-icons {
 			display: flex;
-			column-gap: 10vw;
+			column-gap: 8vw;
+			row-gap: 2rem;
 			img {
 				max-height: 2rem;
 			}

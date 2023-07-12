@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let fitOrFill: 'fit' | 'fill' = 'fit';
-	export let min: string = '100px';
+	export let min: string = '250px';
 	export let max: string = 'max-content';
 	export let rowGap: string | null = '1rem';
 	export let columnGap: string | null = '0.5rem';
