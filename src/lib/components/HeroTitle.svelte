@@ -4,7 +4,7 @@
 	export let text: string[];
 	export let headingSizes: number[] = [];
 	export let bgColor: string | null = null;
-	export let bgImage: string | null = 'linear-gradient(#0008, #0008)';
+	export let bgImage: string | null = 'linear-gradient(#1127, #1127)';
 	export let align: string = 'start';
 	export let justify: string = 'start';
 	export let translateX: string | null = null;

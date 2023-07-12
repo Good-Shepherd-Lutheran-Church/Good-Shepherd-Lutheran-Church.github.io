@@ -7,9 +7,10 @@
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Card from '$components/Card.svelte';
 	import HeroTitle from '$components/HeroTitle.svelte';
-	import { navbarStartsTransparent } from '$components/Navbar.svelte';
+	import { navbarStartsTransparent, navbarStartsUntitled } from '$components/Navbar.svelte';
 
 	$navbarStartsTransparent = true;
+	$navbarStartsUntitled = true;
 </script>
 
 <svelte:head>
@@ -22,10 +23,10 @@
 
 <Hero shadeMode={null} height="80vh" imageEntry={mainLanding.fuzz('church_at_sunrise')}>
 	<HeroTitle
-		text={['Lutheran Church and School', 'Gulf Breeze, Florida']}
-		headingSizes={[2, 3]}
+		text={['Good Shepherd', 'Lutheran Church and School', 'Gulf Breeze, Florida']}
 		radius="10px"
 		color="white"
+		border="4px ridge silver"
 	/>
 </Hero>
 

@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
 	export const navbarStartsTransparent: Writable<boolean> = writable(false);
+	export const navbarStartsUntitled: Writable<boolean> = writable(false);
 </script>
 
 <script lang="ts">
@@ -12,6 +13,7 @@
 	import { quintIn } from 'svelte/easing';
 	import { beforeNavigate } from '$app/navigation';
 	import { writable, type Writable } from 'svelte/store';
+	import { fade } from 'svelte/transition';
 
 	export let homeHref: string = '/';
 	export let logoSrc: string | null = null;
@@ -43,19 +45,28 @@
 
 	beforeNavigate(() => {
 		$navbarStartsTransparent = false;
+		$navbarStartsUntitled = false;
 	});
+
+	let isHovered: boolean = false;
 </script>
 
 <nav
 	class="Navbar-outer"
 	style:grid-column={cols}
 	style:position={$navbarStartsTransparent ? 'fixed' : 'sticky'}
-	class:transparent={$navbarStartsTransparent && $scrollIsTop}
+	class:transparent={$navbarStartsTransparent && $scrollIsTop && !isHovered}
+	on:mouseenter={() => {
+		isHovered = true;
+	}}
+	on:mouseleave={() => {
+		isHovered = false;
+	}}
 >
 	<svelte:element this={logoSrc ? 'img' : null} class="logo" src={logoSrc} alt={logoAlt} />
 
-	{#if title !== null}
-		<div class="title"><NavButton text={title} href={homeHref} /></div>
+	{#if (title !== null && !$navbarStartsUntitled) || (title !== null && $navbarStartsUntitled && !$scrollIsTop) || (title !== null && isHovered)}
+		<div class="title" transition:fade><NavButton text={title} href={homeHref} /></div>
 	{/if}
 
 	{#if !$below.md}
@@ -142,12 +153,10 @@
 			'drawer drawer drawer drawer' auto;
 		grid-template-columns: auto 1fr auto auto;
 		user-select: none;
+		transition: filter 250ms ease-in-out;
 
 		&.transparent {
-			background-image: linear-gradient(
-				var(--secondaryColorTransparent),
-				var(--secondaryColorTransparent)
-			);
+			filter: opacity(0.4);
 		}
 
 		.logo {

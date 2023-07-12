@@ -17,15 +17,15 @@ This is v5 of the site for the church and school.
 - More minor style tweaks on Gallery.
 - Added "Still Need" section to this document.
 - Added more details to the Details section of this document.
-
-#### 7/10/23
-
 - Turned copied PDF calendar to Google Calendar.
 - Added calendar to school. Still need church.
 
 #### 7/11/23
 
 - Added footer with copyright and social media icons. These will appear at the bottom of every page.
+- There are now two stores exported by Navbar.svelte,
+  - `navbarStartsTransparent`: If set to true, the navbar will be transparent until the window is scrolled. The scroll position comes from the store `scrollIsTop` in WindowWatcher.svelte in the main layout.
+  - `navbarStartsUntitled`: Same rules as `navbarStartsTransparent` except the navbar title will fade in on scroll. This is so the main landing page doesn't have redundant titles.
 
 ## Still Need
 
