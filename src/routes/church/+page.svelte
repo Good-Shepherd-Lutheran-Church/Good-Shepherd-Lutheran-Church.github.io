@@ -4,10 +4,10 @@
 	import { churchLanding } from '$utils/ImageImports/ImageImports';
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Button from '$components/Button.svelte';
-	import Hero from '$components/Hero.svelte';
 	import Title from '$components/Title.svelte';
 	import Gallery from '$components/Gallery.svelte';
 	import { lifeTogether } from '$utils/ImageImports/ImageImports';
+	import BgImageBox from '$components/BgImageBox.svelte';
 </script>
 
 <svelte:head>
@@ -15,7 +15,12 @@
 	<title>Good Shepherd</title>
 </svelte:head>
 
-<Hero imageEntry={churchLanding.fuzz('pews')} height="60vh">
+<BgImageBox
+	gridColumn="1 / 3"
+	overlayMode="darken"
+	imageEntry={churchLanding.fuzz('pews')}
+	height="60vh"
+>
 	<div class="church-landing-buttons">
 		<AutoGrid min="220px">
 			<Button --buttonFs="1.8rem" href="/church/about" text="Who We Are" />
@@ -24,7 +29,7 @@
 			<Button --buttonFs="1.8rem" href="/church/directory" text="Our People" />
 		</AutoGrid>
 	</div>
-</Hero>
+</BgImageBox>
 
 <MainBlock maxWidth="90ex">
 	<Title title="Life Together" />
@@ -36,7 +41,10 @@
   volunteering for Vacation Bible School, or attending one of our family events, or coming to our 5 th
   Sunday Potluck, or even joining the youth on one of their many adventures."
 	/>
-	<Gallery autoplayDelayMs={3500} imageDirectory={lifeTogether} />
+</MainBlock>
+
+<MainBlock maxWidth="85%">
+	<Gallery autoplayDelayMs={5000} imageDirectory={lifeTogether} />
 </MainBlock>
 
 <style lang="scss">

@@ -8,8 +8,9 @@
 6. Youthgroup
 7. YouTube sermon page
 8. Facebook service page
-9. More SEO
-10. Dark mode
+9. Swipe on gallery
+10. More SEO
+11. Dark mode
 
 - More heroes
 - Titles on heroes

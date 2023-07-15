@@ -13,7 +13,7 @@
 	import { quintIn } from 'svelte/easing';
 	import { beforeNavigate } from '$app/navigation';
 	import { writable, type Writable } from 'svelte/store';
-	import { fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	export let homeHref: string = '/';
 	export let logoSrc: string | null = null;
@@ -65,8 +65,12 @@
 >
 	<svelte:element this={logoSrc ? 'img' : null} class="logo" src={logoSrc} alt={logoAlt} />
 
-	{#if (title !== null && !$navbarStartsUntitled) || (title !== null && $navbarStartsUntitled && !$scrollIsTop) || (title !== null && isHovered)}
-		<div class="title" transition:fade><NavButton text={title} href={homeHref} /></div>
+	{#if title !== null}
+		{#if !$navbarStartsUntitled || ($navbarStartsUntitled && !$scrollIsTop)}
+			<div class="title" transition:fly={{ duration: 250, delay: 120, y: -100 }}>
+				<NavButton text={title} href={homeHref} />
+			</div>
+		{/if}
 	{/if}
 
 	{#if !$below.md}

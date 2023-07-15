@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Spacing from '$utils/CssActions/Spacing';
+	import { fly } from 'svelte/transition';
 
 	export let text: string[];
 	export let headingSizes: number[] = [];
@@ -15,6 +16,7 @@
 	export let capitalize: boolean = false;
 	export let border: string | null = null;
 	export let baseFontSize: string | null = '1.3rem';
+	export let transitionState: boolean = true;
 
 	text.forEach((_, i) => {
 		if (headingSizes[i] === undefined) {
@@ -23,25 +25,28 @@
 	});
 </script>
 
-<div
-	class="PageTitle-outer"
-	use:Spacing={spacing}
-	style:background-image={bgImage}
-	style:background-color={bgColor}
-	style:align-self={align}
-	style:justify-self={justify}
-	style:transform={`translateX(${translateX || '0%'}) translateY(${translateY || '0%'})`}
-	style:border-radius={radius}
-	style:color
-	style:text-transform={capitalize ? 'capitalize' : null}
-	style:border
-	style:font-size={baseFontSize}
->
-	{#each text as part, i}
-		<svelte:element this={`h${headingSizes[i]}`}>{part}</svelte:element>
-	{/each}
-	<slot />
-</div>
+{#if transitionState}
+	<div
+		class="PageTitle-outer"
+		use:Spacing={spacing}
+		style:background-image={bgImage}
+		style:background-color={bgColor}
+		style:align-self={align}
+		style:justify-self={justify}
+		style:transform={`translateX(${translateX || '0%'}) translateY(${translateY || '0%'})`}
+		style:border-radius={radius}
+		style:color
+		style:text-transform={capitalize ? 'capitalize' : null}
+		style:border
+		style:font-size={baseFontSize}
+		transition:fly={{ y: -200 }}
+	>
+		{#each text as part, i}
+			<svelte:element this={`h${headingSizes[i]}`}>{part}</svelte:element>
+		{/each}
+		<slot />
+	</div>
+{/if}
 
 <style lang="scss">
 	.PageTitle-outer {

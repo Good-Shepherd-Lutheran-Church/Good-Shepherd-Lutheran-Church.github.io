@@ -3,11 +3,12 @@
 	import Title from '$components/Title.svelte';
 	import Article from '$components/Article.svelte';
 	import { mainLanding } from '$utils/ImageImports/ImageImports';
-	import Hero from '$components/Hero.svelte';
 	import AutoGrid from '$components/AutoGrid.svelte';
 	import Card from '$components/Card.svelte';
 	import HeroTitle from '$components/HeroTitle.svelte';
 	import { navbarStartsTransparent, navbarStartsUntitled } from '$components/Navbar.svelte';
+	import { scrollIsTop } from '$components/WindowWatcher.svelte';
+	import BgImageBox from '$components/BgImageBox.svelte';
 
 	$navbarStartsTransparent = true;
 	$navbarStartsUntitled = true;
@@ -21,14 +22,20 @@
 	<title>Good Shepherd</title>
 </svelte:head>
 
-<Hero shadeMode={null} height="80vh" imageEntry={mainLanding.fuzz('church_at_sunrise')}>
+<BgImageBox
+	gridColumn="1 / 3"
+	bgAttachment="fixed"
+	height="80vh"
+	imageEntry={mainLanding.fuzz('church_at_sunrise')}
+>
 	<HeroTitle
 		text={['Good Shepherd', 'Lutheran Church and School', 'Gulf Breeze, Florida']}
 		radius="10px"
 		color="white"
 		border="4px ridge silver"
+		transitionState={$navbarStartsUntitled && $scrollIsTop}
 	/>
-</Hero>
+</BgImageBox>
 
 <MainBlock maxWidth="90ex">
 	<Title title="Welcome" />

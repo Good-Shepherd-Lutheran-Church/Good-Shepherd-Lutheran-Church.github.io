@@ -7,7 +7,6 @@
 	import isVis from '$utils/IsVis/IsVis';
 	import { fly } from 'svelte/transition';
 	import { tick } from 'svelte';
-	import { cubicInOut } from 'svelte/easing';
 
 	export let imageDirectory: ImageDirectory;
 	export let title: string | null = null;
@@ -36,12 +35,16 @@
 	let thumbsEl: HTMLElement;
 	let thumbRefs: HTMLElement[] = [];
 	let autoplayHoverPause: boolean = false;
+
+	// These values control the direction and distance of gallery
+	// image transitions.
 	let inOutDistance: number = 900;
 	let inDirection: number = inOutDistance;
 	let outDirection: number = inOutDistance * -1;
 	const inOutDuration: number = 200;
 
 	async function slideForward() {
+		// The next two lines set the direction of the fly transition.
 		inDirection = inOutDistance;
 		outDirection = inOutDistance * -1;
 		await tick();
@@ -54,6 +57,7 @@
 	}
 
 	async function slideBack() {
+		// The next two lines set the direction of the fly transition.
 		inDirection = inOutDistance * -1;
 		outDirection = inOutDistance;
 		await tick();
