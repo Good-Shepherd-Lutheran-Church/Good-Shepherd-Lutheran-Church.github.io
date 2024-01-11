@@ -38,8 +38,9 @@
 	<AutoGrid min="40%">
 		<Button text="Programs Offered" href="/school/programs" />
 		<Button text="Meet Our Teachers" href="/school/staff" />
-		<Button text="Information For Parents" href="/school/programs" />
+		<Button text="Information For Parents" href="/school/parents" />
 		<Button text="Enrollment for '23-24 School Year" href="/school/programs" />
+		<Button text="Standards of Ethical Conduct" href="/school/parents#Ethical%20Conduct" />
 	</AutoGrid>
 </MainBlock>
 

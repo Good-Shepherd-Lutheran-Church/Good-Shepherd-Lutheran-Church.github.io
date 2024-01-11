@@ -47,3 +47,5 @@ type Spacing = {
 	paddingBlockStart?: string;
 	paddingBlockEnd?: string;
 };
+
+declare module '*.png?w=300&format=webp';

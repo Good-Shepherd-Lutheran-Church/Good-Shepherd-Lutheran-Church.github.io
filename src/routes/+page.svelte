@@ -9,6 +9,7 @@
 	import { navbarStartsTransparent, navbarStartsUntitled } from '$components/Navbar.svelte';
 	import { scrollIsTop } from '$components/WindowWatcher.svelte';
 	import BgImageBox from '$components/BgImageBox.svelte';
+	import YtGallery from '$components/YtGallery.svelte';
 
 	$navbarStartsTransparent = true;
 	$navbarStartsUntitled = true;
@@ -36,6 +37,13 @@
 		transitionState={$navbarStartsUntitled && $scrollIsTop}
 	/>
 </BgImageBox>
+
+<MainBlock>
+	<YtGallery
+		apiKey="AIzaSyDAzHe-JSCq-SY6r-L9HSL7z1rjfc5eTm8"
+		channelId="UC1PRwM4YbwVtlsNgqthGdyw"
+	/>
+</MainBlock>
 
 <MainBlock maxWidth="90ex">
 	<Title title="Welcome" />

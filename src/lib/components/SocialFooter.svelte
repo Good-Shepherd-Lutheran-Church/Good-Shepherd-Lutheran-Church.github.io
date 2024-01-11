@@ -1,6 +1,6 @@
 <script lang="ts">
-	import FacebookLogo from '$images/social-icons/FindUsOn_Header_2019.png';
-	import YouTubeLogo from '$images/social-icons/yt_logo_rgb_light.png';
+	import FacebookLogo from '$images/social-icons/FindUsOn_Header_2019.png?w=300&format=webp';
+	import YouTubeLogo from '$images/social-icons/yt_logo_rgb_light.png?w=300&format=webp';
 	import { below } from '$components/WindowWatcher.svelte';
 
 	export let facebookUrl: string | null = null;

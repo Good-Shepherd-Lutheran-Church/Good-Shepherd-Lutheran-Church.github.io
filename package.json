@@ -35,5 +35,8 @@
 		"vite-imagetools": "^5.0.4",
 		"vitest": "^0.25.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@types/youtube": "^0.0.47"
+	}
 }
