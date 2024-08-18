@@ -26,7 +26,6 @@
 			<Button --buttonFs="1.8rem" href="/church/about" text="Who We Are" />
 			<Button --buttonFs="1.8rem" href="/church/ministries" text="Ministries" />
 			<Button --buttonFs="1.8rem" href="/church/sermons" text="Sermons" />
-			<Button --buttonFs="1.8rem" href="/church/directory" text="Our People" />
 		</AutoGrid>
 	</div>
 </BgImageBox>

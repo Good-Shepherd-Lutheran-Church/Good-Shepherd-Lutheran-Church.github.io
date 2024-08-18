@@ -48,7 +48,6 @@
 <MainBlock maxWidth="90ex">
 	<Title title="Welcome" />
 	<Article
-		imageEntry={mainLanding.fuzz('pastor_and')}
 		imageMaxHeight={{ below: '80vh', above: '40vh' }}
 		text={[
 			"Welcome to Good Shepherd Lutheran Church and School! Founded in 1963 Good Shepherd has been serving the Santa Rosa Peninsula by bringing God's Word and Sacrament for 60 years! Good Shepherd is a healthy congregation made up of seniors, young families, and everyone in between.",
